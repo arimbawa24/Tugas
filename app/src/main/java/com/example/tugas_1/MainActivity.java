@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        String nama;
         setContentView(R.layout.activity_main);
         button = findViewById(R.id.btn_Login);
         editText1 = findViewById(R.id.txt_edit);
