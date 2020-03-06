@@ -5,39 +5,41 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class PageAdapter extends FragmentPagerAdapter {
 
-    int count;
+    private List<String> IsTab;
+    private List<Fragment> IsFragment;
 
-    public PageAdapter(FragmentManager fm,int count){
-        super(fm);
-        this.count = count;
+    public PageAdapter(FragmentManager fn, List<String> IsTab) {
+        super(fn);
+        this.IsTab = IsTab;
+        IsFragment = new ArrayList<>();
     }
-
-
 
     @Override
-    public Fragment getItem(int i) {
-        switch (i){
-            case 1:
-                TabChat tabChat = new TabChat();
-                return tabChat;
-            case 2:
-                TabStatus tabStatus = new TabStatus();
-                return tabStatus;
-            case 3:
-                TabPanggilan tabPanggilan = new TabPanggilan();
-                return tabPanggilan;
-                default:
-                    return null;
-        }
+    public Fragment getItem(int position) {
+        Fragment frag = null;
+        if (IsFragment.size() > position) frag = IsFragment.get(position);
 
+        if (IsTab.get(position).equals("Chat")) {
+            frag = new TabChat();
+            IsFragment.add(frag);
+        } else if (IsTab.get(position).equals("Status")) {
+            frag = new TabStatus();
+            IsFragment.add(frag);
+        } else if (IsTab.get(position).equals("Panggilan")) {
+            frag = new TabPanggilan();
+            IsFragment.add(frag);
+        }
+        return null;
     }
 
+    @Override
     public int getCount() {
         return 0;
     }
-
 }
