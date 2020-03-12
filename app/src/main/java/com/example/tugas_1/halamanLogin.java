@@ -8,9 +8,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.TableLayout;
+import android.widget.TextView;
 import android.widget.Toolbar;
 
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,17 +24,24 @@ public class halamanLogin extends AppCompatActivity {
 
     private ViewPager viewPager;
     private TabLayout tabLayout;
-
+    private String tamp;
+    TextView session1;
+    FirebaseUser firebaseUser;
+    FirebaseAuth mAuth;
     SharedPreferences pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        session1 = findViewById(R.id.session);
+        mAuth  = FirebaseAuth.getInstance();
+//        tamp = firebaseUser.getUid();
         pref = getApplicationContext().getSharedPreferences("Mypref",MODE_PRIVATE);
         SharedPreferences.Editor editor=pref.edit() ;
 
-        editor.putString("KEY1","Test share preferences");
-        editor.commit();
+//        editor.putString(tamp, session1.getText().toString());
+//        editor.commit();
+
 
 
         setContentView(R.layout.activity_halaman_login);
