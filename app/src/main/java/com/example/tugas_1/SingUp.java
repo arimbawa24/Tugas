@@ -19,6 +19,7 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.core.Tag;
 
 
@@ -52,18 +53,29 @@ public class SingUp extends AppCompatActivity {
                     pass.setError("Email belum di masukan");
                     return;
                 }
-
+                final User user = new User(email1,password1);
                 mAuth.createUserWithEmailAndPassword(email1,password1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if(task.isSuccessful()){
                             Log.d(TAG, "Registrasai berhasil");
+                            FirebaseDatabase.getInstance().getReference("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if(task.isSuccessful()){
+                                        Log.d(TAG, "Data berhasil dimasukan");
+                                        Toast.makeText(SingUp.this, "User berhasil di daftarkan", Toast.LENGTH_LONG).show();
+                                        finish();
+                                    }
+                                }
+                            });
                             Intent intent = new Intent(SingUp.this, MainActivity.class);
                             startActivity(intent);
                         }
                         else {
                             Log.w(TAG, "Registrasai gagal", task.getException());
+                            Toast.makeText(SingUp.this, "gagal", Toast.LENGTH_LONG).show();
                         }
 
                     }
