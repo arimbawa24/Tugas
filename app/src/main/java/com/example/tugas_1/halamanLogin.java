@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.Toolbar;
 
@@ -19,9 +21,19 @@ public class halamanLogin extends AppCompatActivity {
 
     private ViewPager viewPager;
     private TabLayout tabLayout;
+
+    SharedPreferences pref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        pref = getApplicationContext().getSharedPreferences("Mypref",MODE_PRIVATE);
+        SharedPreferences.Editor editor=pref.edit() ;
+
+        editor.putString("KEY1","Test share preferences");
+        editor.commit();
+
+
         setContentView(R.layout.activity_halaman_login);
 //        Toolbar toolbar = findViewById(R.id.toolbar);
 ////        setActionBar(toolbar);

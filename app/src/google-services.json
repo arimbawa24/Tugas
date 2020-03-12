@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "737664040515",
+    "firebase_url": "https://progandro-7bf84.firebaseio.com",
+    "project_id": "progandro-7bf84",
+    "storage_bucket": "progandro-7bf84.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:737664040515:android:c42cf00ca94322ca10def6",
+        "android_client_info": {
+          "package_name": "com.example.tugas_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "737664040515-mr83i3qu1ji4910nioon818ad0tbrnht.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tugas_1",
+            "certificate_hash": "251cde3b782dbcae258a0d7a1aa0ce6a661853ab"
+          }
+        },
+        {
+          "client_id": "737664040515-c3a24ipfr7va0jiepahc38v3f0ukoias.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVFNrTTMM5AddMWQayl4IxnvFazljEqyw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "737664040515-c3a24ipfr7va0jiepahc38v3f0ukoias.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
