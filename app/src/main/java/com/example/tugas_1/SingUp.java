@@ -1,7 +1,6 @@
 package com.example.tugas_1;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -15,17 +14,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.core.Tag;
 
 
 public class SingUp extends AppCompatActivity {
   FirebaseAuth mAuth;
-  private static final String TAG = MainActivity.class.getSimpleName();
+  private static final String TAG = Login.class.getSimpleName();
 
     EditText email;
     EditText pass;
@@ -70,7 +67,7 @@ public class SingUp extends AppCompatActivity {
                                     }
                                 }
                             });
-                            Intent intent = new Intent(SingUp.this, MainActivity.class);
+                            Intent intent = new Intent(SingUp.this, Login.class);
                             startActivity(intent);
                         }
                         else {

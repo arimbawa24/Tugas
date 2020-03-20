@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -20,17 +21,29 @@ import com.google.firebase.auth.FirebaseAuth;
 
 
 
-public class MainActivity extends AppCompatActivity {
-    private static final String TAG = MainActivity.class.getSimpleName();
+public class Login extends AppCompatActivity {
+    private static final String TAG = Login.class.getSimpleName();
     Button button;
     EditText email;
     EditText pass;
     FirebaseAuth mAuth;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        SharedPreferences preferences = getSharedPreferences("masuk",MODE_PRIVATE);
+        String cek = preferences.getString("ingat","");
+
+        if(cek.equals("true")){
+            Intent intent = new Intent(Login.this, HalamanUtama.class);
+            startActivity(intent);
+        }
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.login);
         button = findViewById(R.id.btn_Login);
         email = findViewById(R.id.email);
         mAuth  = FirebaseAuth.getInstance();
@@ -57,12 +70,16 @@ public class MainActivity extends AppCompatActivity {
 
                         if(task.isSuccessful()){
                             Log.d(TAG, "Loginberhasil");
-                            Intent intent = new Intent(MainActivity.this, halamanLogin.class);
+                            Intent intent = new Intent(Login.this, HalamanUtama.class);
                             startActivity(intent);
+                            SharedPreferences preferen = getSharedPreferences("masuk",MODE_PRIVATE);
+                            SharedPreferences.Editor editor = preferen.edit();
+                            editor.putString("ingat","true");
+                            editor.apply();
                         }
                         else {
                             Log.w(TAG, "Login gagal", task.getException());
-                            Toast.makeText(MainActivity.this, "gagal", Toast.LENGTH_LONG).show();
+                            Toast.makeText(Login.this, "gagal", Toast.LENGTH_LONG).show();
                         }
 
                     }
@@ -73,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         singUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SingUp.class);
+                Intent intent = new Intent(Login.this, SingUp.class);
                 startActivity(intent);
             }
         });

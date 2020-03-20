@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-public class TabStatus extends Fragment {
+public class Panggilan extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedIntancesState){
-        View view = inflater.inflate(R.layout.fragment_status,container,false);
+        View view = inflater.inflate(R.layout.fragment_panggilan,container,false);
         return view;
     }
 }
