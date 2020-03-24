@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".HalamanUtama" />
+        <activity android:name=".DetailFilm"
+            android:parentActivityName=".HalamanUtama"
+            android:label="Details"/>
         <activity android:name=".SingUp" />
         <activity android:name=".Login">
             <intent-filter>
