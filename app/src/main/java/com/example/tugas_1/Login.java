@@ -2,6 +2,7 @@ package com.example.tugas_1;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -18,7 +19,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class Login extends AppCompatActivity {
@@ -27,9 +29,7 @@ public class Login extends AppCompatActivity {
     EditText email;
     EditText pass;
     FirebaseAuth mAuth;
-
-
-
+    DatabaseReference databaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +40,7 @@ public class Login extends AppCompatActivity {
         if(cek.equals("true")){
             Intent intent = new Intent(Login.this, HalamanUtama.class);
             startActivity(intent);
+            databaseUser = FirebaseDatabase.getInstance().getReference("users");
         }
 
         super.onCreate(savedInstanceState);

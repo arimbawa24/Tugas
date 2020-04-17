@@ -12,6 +12,14 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="LOGOUT" />
+    <Button
+        android:id="@+id/btn_lihat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Lihat Daftar Email" />
+
+
 
 
 </LinearLayout>
