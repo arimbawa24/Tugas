@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HalamanUtama" />
+        <activity android:name=".HalamanUtama"/>
         <activity android:name=".DetailFilm"
             android:parentActivityName=".HalamanUtama"
             android:label="Details"/>
@@ -28,6 +28,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Camera" />
+
+
     </application>
 
 </manifest>
